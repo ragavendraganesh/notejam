@@ -1,5 +1,6 @@
 import os
 basedir = os.path.abspath(os.path.dirname(__file__))
+database_uri = os.getenv("DB_URI")
 
 class Config(object):
     DEBUG = False
@@ -7,7 +8,7 @@ class Config(object):
     SECRET_KEY = 'notejam-flask-secret-key'
     CSRF_ENABLED = True
     CSRF_SESSION_KEY = 'notejam-flask-secret-key'
-    SQLALCHEMY_DATABASE_URI = 'sqlite:///' + os.path.join(basedir, 'notejam.db')
+    SQLALCHEMY_DATABASE_URI = database_uri
 
 
 class ProductionConfig(Config):
