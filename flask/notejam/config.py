@@ -7,7 +7,10 @@ class Config(object):
     SECRET_KEY = 'notejam-flask-secret-key'
     CSRF_ENABLED = True
     CSRF_SESSION_KEY = 'notejam-flask-secret-key'
-    SQLALCHEMY_DATABASE_URI = database_uri
+    try: 
+       SQLALCHEMY_DATABASE_URI = database_uri
+    except:
+       pass
 
 
 class ProductionConfig(Config):
